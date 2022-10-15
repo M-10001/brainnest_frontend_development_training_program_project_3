@@ -1,4 +1,5 @@
 const CHOICES = ["rock", "paper", "scissor"]
+const TOTAL_GAME_ROUNDS = 5;
 
 function computerPlay() {
   return CHOICES[Math.floor(Math.random() * CHOICES.length)];
@@ -19,7 +20,7 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < TOTAL_GAME_ROUNDS; i++) {
     let playerSelection = prompt(`Input choice from [${CHOICES}]:`).toLowerCase();
 
     while (!CHOICES.includes(playerSelection)) {
@@ -39,9 +40,11 @@ function game() {
       console.log(`Ouput: The ${gameOutput} wins!`)
     }
 
-    console.log();
-    console.log("----------");
-    console.log();
+    if (i < (TOTAL_GAME_ROUNDS - 1)) {
+      console.log();
+      console.log("----------");
+      console.log();
+    }
   }
 }
 
