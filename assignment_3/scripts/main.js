@@ -6,6 +6,7 @@ while (isNaN(firstNumber) || (inputFirstNumber.length !== firstNumber.toString()
   firstNumber = parseFloat(inputFirstNumber);
 }
 
+console.log()
 let inputSecondNumber = prompt("Input second number for comparing with first:");
 let secondNumber = parseFloat(inputSecondNumber);
 
@@ -13,6 +14,8 @@ while (isNaN(secondNumber) || (inputSecondNumber.length !== secondNumber.toStrin
   inputSecondNumber = prompt("Wrong input try entering second number to compare with first again: ");
   secondNumber = parseFloat(inputSecondNumber);
 }
+
+console.log();
 
 if (firstNumber === secondNumber) {
   console.log(`Both numbers are same: ${firstNumber}, ${secondNumber}`);
@@ -22,6 +25,7 @@ if (firstNumber === secondNumber) {
   console.log(`Second number is larger: ${secondNumber}`);
 }
 
+console.log();
 let inputInteger = prompt("Input integer for checking if it even or odd:");
 let integer = parseInt(inputInteger);
 
