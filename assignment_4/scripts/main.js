@@ -20,11 +20,14 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+
   for (let i = 0; i < TOTAL_GAME_ROUNDS; i++) {
-    let playerSelection = prompt(`Input choice from [${CHOICES}]:`).toLowerCase();
+    let playerSelection = prompt(`Input choice from [${CHOICES}] to play:`).toLowerCase();
 
     while (!CHOICES.includes(playerSelection)) {
-      playerSelection = prompt(`Wrong input. Input choice again from [${CHOICES}]:`).toLowerCase();
+      playerSelection = prompt(`Wrong input. Input choice again from [${CHOICES}] to play:`).toLowerCase();
     }
 
     let computerSelection = computerPlay();
@@ -34,17 +37,33 @@ function game() {
     console.log();
     let roundOutput = playRound(playerSelection, computerSelection);
 
-    if (roundOutput === "draw"){
-      console.log("Output: Draw!");
-    } else {
-      console.log(`Ouput: The ${roundOutput} wins!`)
+    switch (roundOutput) {
+      case "draw":
+        console.log(`Round ${i + 1}: Draw!`);
+        break;
+      case "player":
+        playerScore++;
+        console.log(`Round ${i + 1}: The player wins this round!`);
+        break;
+      default:
+        computerScore++;
+        console.log(`Round ${i + 1}: The computer wins this round!`)
     }
 
-    if (i < (TOTAL_GAME_ROUNDS - 1)) {
-      console.log();
-      console.log("----------");
-      console.log();
-    }
+    console.log();
+    console.log("----------");
+    console.log();
+  }
+
+  console.log(`Player final score: ${playerScore}`);
+  console.log(`Computer final score: ${computerScore}`);
+
+  if (playerScore === computerScore) {
+    console.log("It is a tie.");
+  } else if (playerScore > computerScore) {
+    console.log("The player wins!");
+  } else {
+    console.log("The computer wins!");
   }
 }
 
