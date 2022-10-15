@@ -8,11 +8,11 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return "draw";
-  } else if ((playerSelection === CHOICES[0]) && (computerSelection === CHOICES[2])) {
-    return "player";
-  } else if ((playerSelection === CHOICES[1]) && (computerSelection === CHOICES[0])) {
-    return "player";
-  } else if ((playerSelection === CHOICES[2]) && (computerSelection === CHOICES[1])) {
+  } else if (
+    ((playerSelection === CHOICES[0]) && (computerSelection === CHOICES[2])) ||
+    ((playerSelection === CHOICES[1]) && (computerSelection === CHOICES[0])) ||
+    ((playerSelection === CHOICES[2]) && (computerSelection === CHOICES[1]))
+  ) {
     return "player";
   } else {
     return "computer";
