@@ -1,7 +1,5 @@
 const CHOICES = ["rock", "paper", "scissor"]
 const TOTAL_GAME_ROUNDS = 5;
-let playerScore = 0;
-let computerScore = 0;
 
 function getPlayerInput() {
   let playerSelection = prompt(`Input choice from [${CHOICES}] to play:`).toLowerCase();
@@ -31,28 +29,28 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function outputRoundResult(roundOutput, currentRound) {
+function outputAndCalculateRoundResult(roundOutput, currentRound, score) {
   switch (roundOutput) {
     case "draw":
       console.log(`Round ${currentRound}: Draw!`);
       break;
     case "player":
-      playerScore++;
+      score.playerScore++;
       console.log(`Round ${currentRound}: The player wins this round!`);
       break;
     default:
-      computerScore++;
+      score.computerScore++;
       console.log(`Round ${currentRound}: The computer wins this round!`)
   }
 }
 
-function outputFinalResult(playerScore, computerScore) {
-  console.log(`Player final score: ${playerScore}`);
-  console.log(`Computer final score: ${computerScore}`);
+function outputFinalResult(score) {
+  console.log(`Player final score: ${score.playerScore}`);
+  console.log(`Computer final score: ${score.computerScore}`);
 
-  if (playerScore === computerScore) {
+  if (score.playerScore === score.computerScore) {
     console.log("It is a tie.");
-  } else if (playerScore > computerScore) {
+  } else if (score.playerScore > score.computerScore) {
     console.log("The player wins!");
   } else {
     console.log("The computer wins!");
@@ -60,8 +58,10 @@ function outputFinalResult(playerScore, computerScore) {
 }
 
 function game() {
-  playerScore = 0;
-  computerScore = 0;
+  let score = {
+    playerScore: 0,
+    computerScore: 0
+  };
 
   for (let i = 0; i < TOTAL_GAME_ROUNDS; i++) {
     let playerSelection = getPlayerInput();
@@ -71,13 +71,13 @@ function game() {
     console.log(`Computer chose: ${computerSelection}`)
     console.log();
     let roundOutput = playRound(playerSelection, computerSelection);
-    outputRoundResult(roundOutput, i + 1);
+    outputAndCalculateRoundResult(roundOutput, i + 1, score);
     console.log();
     console.log("----------");
     console.log();
   }
 
-  outputFinalResult(playerScore, computerScore);
+  outputFinalResult(score);
 }
 
 game();
