@@ -1,4 +1,4 @@
-const CHOICES = ["rock", "paper", "scissor"]
+const CHOICES = ["rock", "paper", "scissor"];
 const TOTAL_GAME_ROUNDS = 5;
 
 function getPlayerInput() {
