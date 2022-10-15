@@ -32,12 +32,12 @@ function game() {
     console.log(`Player chose: ${playerSelection}`);
     console.log(`Computer chose: ${computerSelection}`)
     console.log();
-    let gameOutput = playRound(playerSelection, computerSelection);
+    let roundOutput = playRound(playerSelection, computerSelection);
 
-    if (gameOutput === "draw"){
+    if (roundOutput === "draw"){
       console.log("Output: Draw!");
     } else {
-      console.log(`Ouput: The ${gameOutput} wins!`)
+      console.log(`Ouput: The ${roundOutput} wins!`)
     }
 
     if (i < (TOTAL_GAME_ROUNDS - 1)) {
