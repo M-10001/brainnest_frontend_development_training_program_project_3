@@ -35,22 +35,22 @@ function outputAndCalculateRoundResult(roundOutput, currentRound, score) {
       console.log(`Round ${currentRound}: Draw!`);
       break;
     case "player":
-      score.playerScore++;
+      score.player++;
       console.log(`Round ${currentRound}: The player wins this round!`);
       break;
     default:
-      score.computerScore++;
+      score.computer++;
       console.log(`Round ${currentRound}: The computer wins this round!`)
   }
 }
 
 function outputFinalResult(score) {
-  console.log(`Player final score: ${score.playerScore}`);
-  console.log(`Computer final score: ${score.computerScore}`);
+  console.log(`Player final score: ${score.player}`);
+  console.log(`Computer final score: ${score.computer}`);
 
-  if (score.playerScore === score.computerScore) {
+  if (score.player === score.computer) {
     console.log("It is a tie.");
-  } else if (score.playerScore > score.computerScore) {
+  } else if (score.player > score.computer) {
     console.log("The player wins!");
   } else {
     console.log("The computer wins!");
@@ -59,8 +59,8 @@ function outputFinalResult(score) {
 
 function game() {
   let score = {
-    playerScore: 0,
-    computerScore: 0
+    player: 0,
+    computer: 0
   };
 
   for (let i = 0; i < TOTAL_GAME_ROUNDS; i++) {
