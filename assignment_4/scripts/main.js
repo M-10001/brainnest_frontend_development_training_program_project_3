@@ -27,7 +27,7 @@ function game() {
     let playerSelection = prompt(`Input choice from [${CHOICES}] to play:`).toLowerCase();
 
     while (!CHOICES.includes(playerSelection)) {
-      playerSelection = prompt(`Wrong input. Input choice again from [${CHOICES}] to play:`).toLowerCase();
+      playerSelection = prompt(`Wrong input.\nInput choice again from [${CHOICES}] to play:`).toLowerCase();
     }
 
     let computerSelection = computerPlay();
